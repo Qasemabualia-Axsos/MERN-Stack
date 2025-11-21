@@ -1,0 +1,12 @@
+.main{
+  width: 350px;
+  text-align: start;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 15px;
+}
+
+.text{
+  font-size: 25px;
+}
