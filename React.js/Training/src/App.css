@@ -1,0 +1,59 @@
+nav{
+  width: 80%;
+  height: 15%;
+  background-color: rgb(67, 130, 130);
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+input{
+  height: 90%;
+  width: 40%;
+}
+nav button{
+  width: 100px;
+  height: 30px;
+  background-color: rgb(31, 98, 153);
+  color: white;
+}
+
+.content{
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+.top ,
+.bottom{
+  display: flex;
+  justify-content: space-between;
+  border: 3px solid black;
+  text-align: center;
+  padding: 12px;
+  margin-top: 15px;
+   align-items: center;
+}
+.top button,.bottom button{
+   width: 100px;
+  height: 30px;
+  background-color: yellow;
+  color: black;
+}
+
+.smallCard{
+  border: 3px solid black;
+  width: 40%;
+  height: 250px;
+  text-align: center;
+  font-size: 25px;
+  margin-top: 15px;
+}
+.smallCard button{
+   width: 130px;
+  height: 40px;
+  background-color: yellow;
+  color: black;
+}
+
+
