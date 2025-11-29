@@ -3,26 +3,56 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-function Likes(){
-  const [count,setCount]= useState(0);
 
-  function increase(){
-    setCount(count+1)
-  }
-
+function Counter(){
+  const [num,setNum]=useState(0)
   return (
-    <button onClick={increase}>{count} likes </button>
-  );
+    <>
+    <h1>{num}</h1>
+    <button onClick={() => setNum(num+1)}>+</button>
+    <button onClick={() => setNum(num-1)}>-</button>
+    <button onClick={() => setNum(0)}>  Reset</button>
+    </>
+  )
 }
 
-function LoginButton(){
-  const [isLogged,setIsLogged]=useState(false);
-  function HandleLogin(){
-    setIsLogged(!isLogged);
+
+function LiveInput(){
+  const [text,setText]=useState("");
+
+  return (
+    <>
+    <input onChange={(e) => setText(e.target.value)} />
+    <p>You typed: {text}</p>
+    </>
+  )
+}
+
+function LoginForm(){
+  const [username,setUsername]=useState("");
+
+  function handleSumbit(e){
+    e.preventDefault(); 
+    alert ("Welcome" + username )
   }
-  
-  return(
-    <button onClick={HandleLogin}>{isLogged ? "logout" : "login"}</button>
+  return (
+    <form onSubmit={handleSumbit}>
+      <input onChange={(e) => setUsername(e.target.value)} />
+      <button type="submit">Login</button>
+    </form>
+  )
+}
+
+
+function Background(){
+  const [color,setColor]=useState("white");
+
+  return (
+    <div style={{background:color,height:"100vh"}} >
+    <button onClick={() => setColor("red")}>Red</button>
+    <button onClick={() => setColor("black")} >Black</button>
+
+    </div>
   )
 }
 
@@ -33,47 +63,13 @@ function LoginButton(){
 export default function MyApp(){
   return(
     <>
-    <main>
-      <nav>
-        <h1>Dojonary</h1>
-        <input type="text" placeholder='Search' />
-        <button>Login</button>
-      </nav>
-      <div className="content">
-        <div className="bigCards">
-          <div className="top">
-            <div className="left-top">
-              <h1>ninja</h1>
-              <h2>noun</h2>
-              <h2>Plural:nunjas</h2>
-              <Likes/>
-            </div>
-            <div className="right-top">
-              <p>A practitioner skilled in the <a href="#">Japanes</a> art of <a href="#">ninjutsu
-                </a></p>
-            </div>
-            </div>
-            <div className="bottom">
-              <div className="left-top">
-              <h1>ninja</h1>
-              <h2>noun</h2>
-              <h2>Plural:nunjas</h2>
-              <Likes/>
-            </div>
-            <div className="right-top">
-              <p>A practitioner skilled in the <a href="#">Japanes</a> art of <a href="#">ninjutsu
-                </a></p>
-                <LoginButton/>
-            </div>
-            </div>
-          
-        </div>
-        <div className="smallCard">
-          <p>Dojonary is Defined by YOU</p>
-          <button>Add Definition</button>
-        </div>
-      </div>
-    </main>
+    <Counter/>
+    <br/>
+    <LiveInput/>
+    <br/>
+    <LoginForm/>
+    <br/>
+    <Background/>
     </>
   )
 }
