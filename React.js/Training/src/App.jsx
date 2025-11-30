@@ -4,72 +4,46 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 
-function Counter(){
-  const [num,setNum]=useState(0)
-  return (
-    <>
-    <h1>{num}</h1>
-    <button onClick={() => setNum(num+1)}>+</button>
-    <button onClick={() => setNum(num-1)}>-</button>
-    <button onClick={() => setNum(0)}>  Reset</button>
-    </>
-  )
-}
-
-
-function LiveInput(){
-  const [text,setText]=useState("");
-
-  return (
-    <>
-    <input onChange={(e) => setText(e.target.value)} />
-    <p>You typed: {text}</p>
-    </>
-  )
-}
-
-function LoginForm(){
+const UserForm = () => {
   const [username,setUsername]=useState("");
+  const [email,setEmail]=useState("");
+  const [password,setPassword] = useState("");
 
-  function handleSumbit(e){
-    e.preventDefault(); 
-    alert ("Welcome" + username )
+  const createUser=(e) => {
+    e.preventDefault();
+    console.log("welcome",{username,email,password});
+    setUsername("");
+    setEmail("");
+    setPassword("");
   }
-  return (
-    <form onSubmit={handleSumbit}>
-      <input onChange={(e) => setUsername(e.target.value)} />
-      <button type="submit">Login</button>
-    </form>
-  )
+    return (
+      <>
+      <form onSubmit={createUser}>
+        <div>
+          <label>Username:</label>
+          <input type="text" value={username} onChange={(e) => setUsername(e.target.value)}/>
+        </div>
+
+         <div>
+          <label>Email:</label>
+          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+        </div>
+
+         <div>
+          <label>Password:</label>
+          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+        </div>
+
+        <button type='submit'>Create User</button>
+      </form>
+      </>
+    )
 }
 
 
-function Background(){
-  const [color,setColor]=useState("white");
-
-  return (
-    <div style={{background:color,height:"100vh"}} >
-    <button onClick={() => setColor("red")}>Red</button>
-    <button onClick={() => setColor("black")} >Black</button>
-
-    </div>
-  )
-}
 
 
 
+export default UserForm;
 
 
-export default function MyApp(){
-  return(
-    <>
-    <Counter/>
-    <br/>
-    <LiveInput/>
-    <br/>
-    <LoginForm/>
-    <br/>
-    <Background/>
-    </>
-  )
-}
