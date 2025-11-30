@@ -1,0 +1,25 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+
+
+.upper{
+  display: grid;
+}
+input {
+  height: 25px;
+}
+
+.result{
+  border: 2px solid black;
+  border-radius: 15px;
+  box-shadow: 10px 10px 10px black;
+  font-size: 15px;
+  text-align: start;
+  color:  black;
+  padding: 15px;
+}
