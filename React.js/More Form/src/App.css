@@ -1,0 +1,63 @@
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f4f8;
+  text-align: center;
+}
+
+
+form {
+  width: 350px;
+  margin: 40px auto;
+  padding: 25px 30px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+form div {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+
+input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+  transition: all 0.2s ease-in-out;
+}
+
+
+input:focus {
+  outline: none;
+  border: 1px solid #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.4);
+}
+
+
+p {
+  margin-top: 6px;
+  font-size: 14px;
+  color: red;
+  font-weight: 500;
+}
+
+
+.first_name, 
+.last_name, 
+.email, 
+.password {
+  margin-bottom: 22px;
+}
