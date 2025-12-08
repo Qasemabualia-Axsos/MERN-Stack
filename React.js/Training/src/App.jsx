@@ -1,25 +1,21 @@
-import { use, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react'
+import CounterForm from './CounterForm'
+import CounterDisplay from './CounterDisplay'
 
+function App() {
+    const [count,setCount]=useState(0);
 
-function UserForm(){
-  const [firstname,setFirstname]=useState("");
-  const [lastname,setLastname]=useState("");
-  const [email,setEmail]=useState("");
-  const [password,setPassword]=useState("");
+    const updateCount=(newValue) =>{
+      setCount(newValue)
+    };
+    return (
+      <>
 
-  return (
-    <>
-    <input type="text" value={firstname} onChange={(e) => setFirstname(e.target.value)}/>
+        <CounterForm onCounterChange={updateCount}/>
+        <CounterDisplay count={count}/>
 
-    </>
-  )
-
+      </>
+    )
 }
 
-
-export default UserForm;
-
-
+export default App;
