@@ -1,0 +1,104 @@
+/* Reset some defaults */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f2f5;
+}
+
+/* Center the app */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding-top: 50px;
+}
+
+/* Container for the todo app */
+.TodoApp {
+  background-color: #fff;
+  width: 400px;
+  padding: 30px 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Form styling */
+.Todo form {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.Todo input[type="text"] {
+  flex: 1;
+  padding: 10px 12px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-right: 10px;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.Todo input[type="text"]:focus {
+  border-color: #007bff;
+}
+
+.Todo input[type="checkbox"] {
+  margin-right: 10px;
+  position: relative;
+  left: 280px;
+  top: 25px;
+  width: 18px;
+  height: 18px;
+}
+
+.Todo button {
+  padding: 10px 16px;
+  background-color: #007bff;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.Todo button:hover {
+  background-color: #0056b3;
+}
+
+/* Todo list items */
+.Todo > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f8f9fa;
+  padding: 10px 12px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  transition: background-color 0.2s;
+}
+
+.Todo > div:hover {
+  background-color: #e2e6ea;
+}
+
+.Todo p {
+  flex: 1;
+  margin-left: 10px;
+  font-size: 16px;
+}
+
+.Todo > div button {
+  background-color: #dc3545;
+  padding: 6px 12px;
+  font-size: 14px;
+}
+
+.Todo > div button:hover {
+  background-color: #a71d2a;
+}
