@@ -1,61 +1,59 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import Form from "./components/Form";
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import ToggleButton from '@mui/material/ToggleButton';
+import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 
-const Todo = () => {
-  const [work, setWork] = useState("");
-  const [todos, setTodos] = useState([]);
+const App = () => {
+  const [lists, setLists] = useState([]);
+  const [edit, setEdit] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+    const handleSubmit=()=>{
+        e.preventDefault();
 
-    if (work === "") {
-      alert("Please add a todo");
-      return;
     }
 
-    setTodos([...todos, { text: work, done: false }]);
-    setWork("");
-  };
+    const addTodo=(title)=>{
+      setLists([...lists,{id:Date.now(),title,isCompleted:false}])
+    };
 
-  const toggleDone = (index) => {
-    const updatedTodos = todos.map((todo, i) =>
-      i === index ? { ...todo, done: !todo.done } : todo
-    );
-    setTodos(updatedTodos);
-  };
+    const deleteTodo=(id)=>{
+      setLists(lists.filter(todo=>todo.id !==id))
+    }
 
-  const deleteTodo = (index) => {
-    const filteredTodos = todos.filter((_, i) => i !== index);
-    setTodos(filteredTodos);
-  };
-
+    const editTodo=(id,title)=>{
+      setLists(lists.map(todo=>todo.id=id?{...todo,title:newTitle}:todo))
+    }
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={work}
-          onChange={(e) => setWork(e.target.value)}
-        />
-        <button>Add</button>
-      </form>
+    <>
 
-      {todos.map((todo, index) => (
-        <div key={index} style={{ display: "flex", gap: "10px", marginTop: "10px" }}>
-          <p style={{ textDecoration: todo.done ? "line-through" : "none" }}>
-            {todo.text}
-          </p>
+      <Card  sx={{ minWidth: 275, backgroundColor: "white", marginLeft: "600px",textAlign:"center" }}>
+        <CardContent>
+          <Typography gutterBottom sx={{ color: 'text.secondary', fontSize: 22 }}>
+            Your List!
+          </Typography>
+          <ToggleButtonGroup
+            color="primary"
+            // value={alignment}
+            exclusive
+            // onChange={handleChange}
+            aria-label="Platform"
+          >
+            <ToggleButton value="all">All</ToggleButton>
+            <ToggleButton value="completed">Done!</ToggleButton>
+            <ToggleButton value="non-completed">On progres</ToggleButton>
+          </ToggleButtonGroup>
+        </CardContent>
+        <Form lists={lists} addTodo={addTodo} deleteTodo={deleteTodo}/>
+      </Card>
+    </>
+  )
+}
 
-          <input
-            type="checkbox"
-            checked={todo.done}
-            onChange={() => toggleDone(index)}
-          />
-
-          <button onClick={() => deleteTodo(index)}>Delete</button>
-        </div>
-      ))}
-    </div>
-  );
-};
-
-export default Todo;
+export default App
